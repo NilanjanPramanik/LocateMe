@@ -8,6 +8,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+const PORT = process.env.PORT || 3000;
+
 //setting ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -66,6 +68,6 @@ app.get("/:roomId", (req, res) => {
 });
 
 //start server
-server.listen(3000, () =>
-  console.log("Server is running on http://localhost:3000")
+server.listen(PORT, () =>
+  console.log(`Server is running on http://localhost:${PORT}`)
 );
