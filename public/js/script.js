@@ -125,7 +125,7 @@ document.getElementById("joinBtn").addEventListener("click", () => {
   );
 });
 
-const map = L.map("map").setView([0, 0], 10);
+const map = L.map("map").setView([0, 0], 14);
 
 navigator.geolocation.getCurrentPosition(
   (position) => {
@@ -158,7 +158,7 @@ socket.on("connect", () => {
 socket.on("recieve-location", (data) => {
   const { id, latitude, longitude, name } = data;
 
-  map.setView([latitude, longitude], 14);
+  // map.setView([latitude, longitude]);
 
   if (markers[id]) {
     markers[id].setLatLng([latitude, longitude]);
